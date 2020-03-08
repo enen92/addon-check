@@ -53,7 +53,7 @@ def _check_image_type(report: Report, asset: tuple, parsed_xml, addon_path: str,
     image_type = asset[0]
     image_check_cb = asset[1]
 
-    fallback, images = _assests(image_type, parsed_xml, addon_path)
+    fallback, images = _assets(image_type, parsed_xml, addon_path)
 
     for image in images:
         if image:
@@ -90,7 +90,7 @@ def _check_image_type(report: Report, asset: tuple, parsed_xml, addon_path: str,
                 Record(WARNING, "Empty image tag found for %s" % image_type))
 
 
-def _assests(image_type: str, parsed_xml, addon_path: str):
+def _assets(image_type: str, parsed_xml, addon_path: str):
     """"""
     images = [image.text for image in parsed_xml.findall("./extension/assets/" + image_type)]
 
